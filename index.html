@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -731,4 +731,1025 @@
         });
     </script>
 </body>
-</html>
+</html><!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYM GUIDE - Правильная техника упражнений</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #ff6b00;
+            --primary-gradient: linear-gradient(90deg, #ff6b00 0%, #ff8c00 100%);
+            --dark-bg: #1a1a1a;
+            --darker-bg: #141414;
+            --card-bg: #2a2a2a;
+            --card-hover: #3a3a3a;
+            --text-light: #ffffff;
+            --text-muted: #cccccc;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--primary-gradient);
+            padding: 20px 0;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'%3E%3Cpath fill='rgba(255,255,255,0.1)' d='M0 0h100v100H0z'/%3E%3Cpath fill='rgba(255,255,255,0.2)' d='M0 0h50v50H0z'/%3E%3C/svg%3E");
+            opacity: 0.1;
+        }
+
+        .logo {
+            font-size: 2.5em;
+            font-weight: 800;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-light);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--text-light);
+            border-radius: 3px;
+        }
+
+        /* Navigation */
+        nav {
+            background: #252525;
+            padding: 15px 0;
+            border-bottom: 3px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            padding: 12px 25px;
+            border-radius: 50px;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+            border-radius: 50px;
+        }
+
+        .nav-links a:hover::before {
+            opacity: 1;
+        }
+
+        .nav-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
+        }
+
+        .nav-links a i {
+            margin-right: 8px;
+            font-size: 0.9em;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .welcome-section {
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .welcome-title {
+            font-size: 3.2em;
+            color: var(--primary);
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            position: relative;
+            display: inline-block;
+        }
+
+        .welcome-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+
+        .welcome-text {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        /* Exercise Grid */
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-top: 60px;
+        }
+
+        .exercise-card {
+            background: linear-gradient(145deg, var(--card-bg) 0%, #232323 100%);
+            border-radius: 20px;
+            padding: 35px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 2px solid #383838;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .exercise-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to bottom right, rgba(255, 107, 0, 0.1), transparent);
+            transform: rotate(-15deg);
+            z-index: 0;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .exercise-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(255, 107, 0, 0.25);
+            border-color: var(--primary);
+        }
+
+        .exercise-card:hover::before {
+            opacity: 1;
+        }
+
+        .exercise-icon {
+            font-size: 4.5em;
+            margin-bottom: 25px;
+            color: var(--primary);
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .exercise-card:hover .exercise-icon {
+            transform: scale(1.1);
+        }
+
+        .exercise-title {
+            font-size: 2.2em;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .exercise-description {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 1.15em;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-gradient);
+            color: white;
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #ff8c00 0%, #ff6b00 100%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 0, 0.4);
+        }
+
+        .btn:hover::before {
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 3px solid var(--primary);
+            margin-top: 80px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'%3E%3Cpath fill='rgba(255,107,0,0.05)' d='M0 0h100v100H0z'/%3E%3Cpath fill='rgba(255,107,0,0.1)' d='M0 0h50v50H0z'/%3E%3C/svg%3E");
+        }
+
+        .footer-text {
+            color: #888;
+            font-size: 1.1em;
+            position: relative;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: #2c2c2c;
+            color: var(--text-light);
+            border-radius: 50%;
+            font-size: 1.2em;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-gradient);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+        }
+
+        /* Exercise Pages */
+        .exercise-page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .exercise-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .exercise-page-title {
+            font-size: 3.5em;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            display: inline-block;
+        }
+
+        .exercise-page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+
+        .technique-section {
+            background: linear-gradient(145deg, var(--card-bg) 0%, #232323 100%);
+            padding: 35px;
+            border-radius: 20px;
+            margin-bottom: 35px;
+            border-left: 5px solid var(--primary);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .technique-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, rgba(255, 107, 0, 0.1) 0%, transparent 100%);
+            border-radius: 0 0 0 100%;
+        }
+
+        .technique-title {
+            font-size: 2.2em;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .technique-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .technique-steps {
+            list-style: none;
+        }
+
+        .technique-steps li {
+            background: rgba(0, 0, 0, 0.2);
+            margin-bottom: 18px;
+            padding: 22px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .technique-steps li::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .technique-steps li:hover {
+            transform: translateX(5px);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .technique-steps li:hover::before {
+            opacity: 1;
+        }
+
+        .technique-steps ol li {
+            counter-increment: step-counter;
+            padding-left: 60px;
+        }
+
+        .technique-steps ol li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 35px;
+            height: 35px;
+            background: var(--primary-gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            box-shadow: 0 0 0 4px rgba(255, 107, 0, 0.2);
+        }
+
+        /* Nutrition Page Styles */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            margin: 40px 0;
+        }
+
+        .info-card {
+            background: linear-gradient(145deg, var(--card-bg) 0%, #232323 100%);
+            padding: 30px;
+            border-radius: 18px;
+            border: 2px solid #383838;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary-gradient);
+            opacity: 0.8;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary);
+        }
+
+        .info-card h3 {
+            color: var(--primary);
+            font-size: 1.7em;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .info-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 25px 0;
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .table th, .table td {
+            padding: 18px 15px;
+            text-align: left;
+            border-bottom: 1px solid #383838;
+        }
+
+        .table th {
+            background: var(--primary-gradient);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.1em;
+        }
+
+        .table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .table tr:hover {
+            background: rgba(255, 107, 0, 0.05);
+        }
+
+        .table tr:last-child {
+            font-weight: bold;
+            background: rgba(255, 107, 0, 0.1);
+        }
+
+        .progress-bar {
+            background: #2a2a2a;
+            height: 22px;
+            border-radius: 12px;
+            margin: 12px 0;
+            overflow: hidden;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary-gradient);
+            border-radius: 12px;
+            transition: width 1s cubic-bezier(0.22, 0.61, 0.36, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .macro-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 40px;
+            background: #383838;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: var(--transition);
+            font-weight: 600;
+            box-shadow: var(--shadow);
+        }
+
+        .back-btn:hover {
+            background: var(--primary);
+            transform: translateX(-5px);
+        }
+
+        .back-btn i {
+            margin-right: 10px;
+        }
+
+        /* Page transition animation */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .logo {
+                font-size: 2.2em;
+            }
+            
+            .welcome-title {
+                font-size: 2.8em;
+            }
+            
+            .exercise-page-title {
+                font-size: 2.8em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .nav-links a {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            
+            .exercise-grid, .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .welcome-title {
+                font-size: 2.3em;
+            }
+            
+            .exercise-page-title {
+                font-size: 2.3em;
+            }
+            
+            .technique-section {
+                padding: 25px;
+            }
+            
+            .table {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.8em;
+            }
+            
+            .welcome-title {
+                font-size: 2em;
+            }
+            
+            .exercise-title {
+                font-size: 1.8em;
+            }
+            
+            .exercise-page-title {
+                font-size: 2em;
+            }
+            
+            .technique-title {
+                font-size: 1.8em;
+            }
+            
+            .table th, .table td {
+                padding: 12px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Главная страница -->
+    <div id="home-page" class="page">
+        <header>
+            <div class="container">
+                <div class="logo">GYM GUIDE</div>
+            </div>
+        </header>
+
+        <nav>
+            <div class="container">
+                <ul class="nav-links">
+                    <li><a href="#home-page"><i class="fas fa-home"></i>Главная</a></li>
+                    <li><a href="#bench-press-page"><i class="fas fa-dumbbell"></i>Жим лежа</a></li>
+                    <li><a href="#squat-page"><i class="fas fa-walking"></i>Приседания</a></li>
+                    <li><a href="#pull-up-page"><i class="fas fa-hands"></i>Подтягивания</a></li>
+                    <li><a href="#nutrition-page"><i class="fas fa-apple-alt"></i>Питание & Прогресс</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <div class="container">
+                <section class="welcome-section">
+                    <h1 class="welcome-title">Правильная техника упражнений</h1>
+                    <p class="welcome-text">
+                        Освойте базовые упражнения с правильной техникой для максимальной эффективности 
+                        и предотвращения травм. Профессиональные инструкции для вашего прогресса.
+                    </p>
+                </section>
+
+                <div class="exercise-grid">
+                    <!-- Карточка жима лежа -->
+                    <div class="exercise-card">
+                        <div class="exercise-icon"><i class="fas fa-dumbbell"></i></div>
+                        <h2 class="exercise-title">Жим лежа</h2>
+                        <p class="exercise-description">
+                            Базовое упражнение для развития грудных мышц, трицепсов и передних дельт.
+                        </p>
+                        <a href="#bench-press-page" class="btn">Изучить технику</a>
+                    </div>
+
+                    <!-- Карточка приседаний -->
+                    <div class="exercise-card">
+                        <div class="exercise-icon"><i class="fas fa-walking"></i></div>
+                        <h2 class="exercise-title">Приседания</h2>
+                        <p class="exercise-description">
+                            Фундаментальное упражнение для развития ног, ягодиц и кора.
+                        </p>
+                        <a href="#squat-page" class="btn">Изучить технику</a>
+                    </div>
+
+                    <!-- Карточка подтягиваний -->
+                    <div class="exercise-card">
+                        <div class="exercise-icon"><i class="fas fa-hands"></i></div>
+                        <h2 class="exercise-title">Подтягивания</h2>
+                        <p class="exercise-description">
+                            Лучшее упражнение для развития мышц спины и бицепсов.
+                        </p>
+                        <a href="#pull-up-page" class="btn">Изучить технику</a>
+                    </div>
+
+                    <!-- Карточка питания -->
+                    <div class="exercise-card">
+                        <div class="exercise-icon"><i class="fas fa-apple-alt"></i></div>
+                        <h2 class="exercise-title">Питание & Прогресс</h2>
+                        <p class="exercise-description">
+                            КБЖУ, план питания и стратегии прогрессии нагрузок для роста мышц.
+                        </p>
+                        <a href="#nutrition-page" class="btn">Узнать больше</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p class="footer-text">© 2024 GYM GUIDE. Все права защищены.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Страница жима лежа -->
+    <div id="bench-press-page" class="page">
+        <header>
+            <div class="container">
+                <div class="logo">ЖИМ ЛЕЖА</div>
+            </div>
+        </header>
+
+        <div class="exercise-page">
+            <div class="exercise-header">
+                <h1 class="exercise-page-title">Техника выполнения жима лежа</h1>
+            </div>
+
+            <div class="technique-section">
+                <h2 class="technique-title">Правильная техника:</h2>
+                <ol class="technique-steps">
+                    <li>Лягте на скамью так, чтобы гриф находился на уровне глаз</li>
+                    <li>Сведите лопатки и прогнитесь в грудном отделе</li>
+                    <li>Возьмитесь за гриф широким хватом (шире плеч)</li>
+                    <li>Снимите штангу со стоек и опустите ее к середине груди</li>
+                    <li>Опускайте штангу контролируемо, сохраняя напряжение в мышцах</li>
+                    <li>В нижней точке сделайте небольшую паузу</li>
+                    <li>Мощно выжмите штангу в исходное положение</li>
+                    <li>В верхней точке не выпрямляйте локти полностью</li>
+                </ol>
+            </div>
+
+            <div class="technique-section">
+                <h2 class="technique-title">Важные моменты:</h2>
+                <ul class="technique-steps">
+                    <li>Не отрывайте таз от скамьи</li>
+                    <li>Держите запястья прямыми</li>
+                    <li>Дышите правильно: вдох при опускании, выдох при жиме</li>
+                    <li>Используйте закрытый хват (большой палец вокруг грифа)</li>
+                    <li>Начинайте с легких весов для отработки техники</li>
+                </ul>
+            </div>
+
+            <a href="#home-page" class="back-btn"><i class="fas fa-arrow-left"></i>Назад к главной</a>
+        </div>
+    </div>
+
+    <!-- Страница приседаний -->
+    <div id="squat-page" class="page">
+        <header>
+            <div class="container">
+                <div class="logo">ПРИСЕДАНИЯ</div>
+            </div>
+        </header>
+
+        <div class="exercise-page">
+            <div class="exercise-header">
+                <h1 class="exercise-page-title">Техника выполнения приседаний</h1>
+            </div>
+
+            <div class="technique-section">
+                <h2 class="technique-title">Правильная техника:</h2>
+                <ol class="technique-steps">
+                    <li>Поставьте ноги на ширине плеч, носки слегка развернуты</li>
+                    <li>Снимите штангу со стоек и расположите ее на трапециях</li>
+                    <li>Сведите лопатки и напрягите мышцы кора</li>
+                    <li>Начните движение отводя таз назад</li>
+                    <li>Опускайтесь до параллели бедер с полом или ниже</li>
+                    <li>Держите спину прямой, не округляйте позвоночник</li>
+                    <li>Колени должны двигаться в направлении носков</li>
+                    <li>Мощно встаньте, отталкиваясь всей стопой</li>
+                </ol>
+            </div>
+
+            <div class="technique-section">
+                <h2 class="technique-title">Важные моменты:</h2>
+                <ul class="technique-steps">
+                    <li>Не отрывайте пятки от пола</li>
+                    <li>Смотрите прямо перед собой</li>
+                    <li>Держите грудь расправленной</li>
+                    <li>Используйте пояс для тяжелых весов</li>
+                    <li>Разминайтесь перед рабочими подходами</li>
+                </ul>
+            </div>
+
+            <a href="#home-page" class="back-btn"><i class="fas fa-arrow-left"></i>Назад к главной</a>
+        </div>
+    </div>
+
+    <!-- Страница подтягиваний -->
+    <div id="pull-up-page" class="page">
+        <header>
+            <div class="container">
+                <div class="logo">ПОДТЯГИВАНИЯ</div>
+            </div>
+        </header>
+
+        <div class="exercise-page">
+            <div class="exercise-header">
+                <h1 class="exercise-page-title">Техника выполнения подтягиваний</h1>
+            </div>
+
+            <div class="technique-section">
+                <h2 class="technique-title">Правильная техника:</h2>
+                <ol class="technique-steps">
+                    <li>Возьмитесь за турник прямым хватом шире плеч</li>
+                    <li>Повисните на прямых руках, полностью выпрямившись</li>
+                    <li>Сведите лопатки и напрягите мышцы спины</li>
+                    <li>Подтянитесь силой мышц спины, а не рук</li>
+                    <li>Поднимитесь до уровня, когда подбородок окажется над перекладиной</li>
+                    <li>В верхней точке сведите лопатки максимально вместе</li>
+                    <li>Медленно опуститесь в исходное положение</li>
+                    <li>Полностью выпрямите руки в нижней точке</li>
+                </ol>
+            </div>
+
+            <div class="technique-section">
+                <h2 class="technique-title">Важные моменты:</h2>
+                <ul class="technique-steps">
+                    <li>Не раскачивайтесь корпусом</li>
+                    <li>Избегайте рывковых движений</li>
+                    <li>Дышите правильно: выдох на усилии, вдох при опускании</li>
+                    <li>Для начала используйте резиновые петли-помощники</li>
+                    <li>Тренируйтесь регулярно для прогресса</li>
+                </ul>
+            </div>
+
+            <a href="#home-page" class="back-btn"><i class="fas fa-arrow-left"></i>Назад к главной</a>
+        </div>
+    </div>
+
+    <!-- Страница питания и прогрессии -->
+    <div id="nutrition-page" class="page">
+        <header>
+            <div class="container">
+                <div class="logo">ПИТАНИЕ & ПРОГРЕСС</div>
+            </div>
+        </header>
+
+        <div class="exercise-page">
+            <div class="exercise-header">
+                <h1 class="exercise-page-title">Питание и Прогрессия Нагрузок</h1>
+            </div>
+
+            <div class="technique-section">
+                <h2 class="technique-title">Основы КБЖУ для роста мышц</h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fas fa-drumstick-bite"></i> Белки</h3>
+                        <p>1.6-2.2 г/кг веса тела. Источники: курица, рыба, яйца, творог, протеин</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fas fa-bacon"></i> Жиры</h3>
+                        <p>0.8-1.2 г/кг веса тела. Источники: орехи, авокадо, оливковое масло, рыбий жир</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fas fa-bread-slice"></i> Углеводы</h3>
+                        <p>3-6 г/кг веса тела. Источники: рис, гречка, овсянка, картофель, фрукты</p>
+                    </div>
+                </div>
+
+                <table class="table">
+                    <tr>
+                        <th>Цель</th>
+                        <th>Калории</th>
+                        <th>Белки</th>
+                        <th>Жиры</th>
+                        <th>Углеводы</th>
+                    </tr>
+                    <tr>
+                        <td>Набор массы</td>
+                        <td>+300-500 ккал</td>
+                        <td>2.0 г/кг</td>
+                        <td>1.0 г/кг</td>
+                        <td>5-6 г/кг</td>
+                    </tr>
+                    <tr>
+                        <td>Поддержание</td>
+                        <td>Норма</td>
+                        <td>1.8 г/кг</td>
+                        <td>1.0 г/кг</td>
+                        <td>3-4 г/кг</td>
+                    </tr>
+                    <tr>
+                        <td>Сушка</td>
+                        <td>-300-500 ккал</td>
+                        <td>2.2 г/кг</td>
+                        <td>0.8 г/кг</td>
+                        <td>1-2 г/кг</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="technique-section">
+                <h2 class="technique-title">Прогрессия нагрузок</h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fas fa-chart-line
+                            
+
